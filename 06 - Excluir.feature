@@ -2,8 +2,7 @@
 #encoding: utf-8
 
 Funcionalidade:  06-Excluir
-  Como usuário do sistema que possui permissão de acesso a funcionalidade para Manter Requisições de despesas,
-  quero Excluir uma requisição.
+  Como usuário do sistema que possui permissão de acesso a funcionalidade para Manter Requisições de despesas, quero Excluir uma requisição.
 
   Contexto:
     Dado que exista requisição na lista de requisições:
@@ -17,9 +16,15 @@ Funcionalidade:  06-Excluir
     Quando o usuário clica em Excluir requisição
     E o sistema apresenta a mensagem: "Deseja realmente Excluir a requisição selecionada ?"
     E o usuário confirma
-    Então o sistema apresenta a mensagem "Requisição Excluir com sucesso!" e Exclui a requisição
+    Então o sistema apresenta a mensagem "Requisição Excluida com sucesso!" e Exclui a requisição
+    E o sistema envia o registro apagado para "lixeira" para possivel verificação posterior
+    E o sistema atualiza o cadastro sem a requisição excluida
 
-
+  Cenário: Cancelar Exclusão de Requisição
+    Quando o usuário clica em Excluir requisição
+    E o sistema apresenta a mensagem: "Deseja realmente Excluir a requisição selecionada ?"
+    E o usuário cancela
+    Então o sistema volta a apresentar a lista de requisição
 
   Cenário: Protótipo
   ![image](Excluir.png)
